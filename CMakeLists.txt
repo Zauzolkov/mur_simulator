@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(URHO3D_HOME "/home/vlad/Documents/Projects/Urho3D/install")
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 
@@ -43,3 +42,8 @@ target_link_libraries(simulator
         ${ZMQ_LIBRARIES}
         )
 
+file(GLOB_RECURSE PROJECT_RESOURCES
+    ${PROJECT_SOURCE_DIR}/resources/*
+    )
+
+install(FILES ${PROJECT_RESOURCES} DESTINATION share/mur-simulator)
